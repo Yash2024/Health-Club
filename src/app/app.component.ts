@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'healthy-club';
+  constructor(private router: Router) { }
+  landingpage() {
+    this.router.navigateByUrl("landing-page");
+  }
+  placeAppointment() {
+    this.router.navigateByUrl("place-fitness-trainer-appointment");
+  }
+  viewAppointment() {
+    this.router.navigateByUrl("view-appointment");
+  }
+  contactUspage() {
+    this.router.navigateByUrl("contact-us");
+  }
 }

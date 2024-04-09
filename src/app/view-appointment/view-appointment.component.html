@@ -1,0 +1,39 @@
+<div style="padding-left: 650px;">
+  <h2>View Appointments</h2>
+</div>
+
+<div style="display:flex; justify-content: center;">
+    
+    <br>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>SNo.</th>
+          <th>Name</th>
+          <th>MOB NO</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Address</th>
+          <th>Trainer Preference</th>
+          <th>Physiotherapist</th>
+          <th>Package</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ appointment.firstname }}</td>
+          <td>{{ appointment.phonenumber }}</td>
+          <td>{{ appointment.email }}</td>
+          <td>{{ appointment.age }}</td>
+          <td>{{ appointment.streetaddress }}, {{appointment.city}}</td>
+          <td>{{ appointment.trainerpreference }}</td>
+          <td>{{ appointment.physiotherapist }}</td>
+          <td>{{ appointment.package }}</td>
+          <td>{{ appointment.inr }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

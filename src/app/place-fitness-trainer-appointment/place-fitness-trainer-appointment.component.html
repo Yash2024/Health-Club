@@ -1,0 +1,68 @@
+<div style="padding-left: 620px;">
+  <h1>Place Appointment</h1>
+</div>
+
+
+<div style="display: flex; justify-content: center;">
+
+<div>
+    <label for="Name">Name</label>
+    <input type="text" id="Name" [(ngModel)]="Name" style="margin-right: 200px;">
+    <label for="Age">Age</label>
+    <input type="number" id="Age" [(ngModel)]="Age">
+    <br>
+    <label for="Email">Email</label>
+    <input type="text" id="Email" [(ngModel)]="Email" style="margin-right: 170px;">
+    <label for="MobNO">Mob No.</label>
+    <input type="number" id="MobNO" [(ngModel)]="MobNO">
+    <br>
+    <label for="Address_Line1">Address_Line1</label>
+    <input type="text" id="Address_Line1" [(ngModel)]="Address_Line1" style="margin-right: 100px;">
+    <label for="Address_Line2">Address_Line2</label>
+    <input type="text" id="Address_Line2" [(ngModel)]="Address_Line2">
+    <br>
+    <label for="City">City</label>
+    <input type="text" id="City" [(ngModel)]="City" style="margin-right: 200px;">
+    <label for="State">State</label>
+    <input type="text" id="State" [(ngModel)]="State">
+    <br>
+    <label for="Country">Country</label>
+    <input type="text" id="Country" [(ngModel)]="Country" style="margin-right: 200px;">
+    <label for="PinCode">PinCode</label>
+    <input type="number" id="PinCode" [(ngModel)]="PinCode">
+  <br><br>
+    <div>
+      <label>Trainer Preference:</label><br>
+      <input type="radio" name="trainerPreference" value="Male Trainer" [(ngModel)]="trainerPreference"> Male Trainer
+      <input type="radio" name="trainerPreference" value="Female Trainer" [(ngModel)]="trainerPreference"> Female Trainer
+      <input type="radio" name="trainerPreference" value="NoPreference" [(ngModel)]="trainerPreference"> No Preference
+    </div>
+  <br>
+    <div>
+      <label>Do You Need Physiotherapist:</label><br>
+      <input type="radio" name="physiotherapistNeeded" value="Yes" (change)="calculateAmount()" [(ngModel)]="physiotherapistNeeded"> Yes
+      <input type="radio" name="physiotherapistNeeded" value="No" (change)="calculateAmount()" [(ngModel)]="physiotherapistNeeded"> No
+    </div>
+  <br>
+    <div>
+      <label>Select a Package:</label><br>
+      <input type="radio" name="package" value="OneTime" (change)="calculateAmount()" [(ngModel)]="selectedPackage"> One Time Appointment 500/-<br>
+      <input type="radio" name="package" value="FourSessions" (change)="calculateAmount()" [(ngModel)]="selectedPackage"> 4 sessions per week 400/- per session<br>
+      <input type="radio" name="package" value="FiveSessions" (change)="calculateAmount()" [(ngModel)]="selectedPackage"> 5 sessions per week 300/- per session
+    </div>
+  <br>
+    <div *ngIf="selectedPackage === 'FourSessions' || selectedPackage === 'FiveSessions'">
+      <label>Weeks:</label>
+      <input type="number" [(ngModel)]="weeks" 
+      [disabled]="selectedPackage !== 'FourSessions' && selectedPackage !== 'FiveSessions'" (input)="calculateAmount()" ><br>
+    </div>
+  <br>
+    <div>
+      <label>Amount:</label>
+      <input type="number" [(ngModel)]="amount" [disabled]="true"> 
+    </div>
+<br>
+    <button (click)="submit()">Submit</button>
+  </div>
+  
+</div>
